@@ -1,0 +1,113 @@
+employees = []
+def add_employee():
+    emp_id = input("Enter Employee ID: ")
+    name = input("Enter Employee Name: ")
+    department = input("Enter Department: ")
+    salary = float(input("Enter Salary: "))
+    employee = {
+        "ID": emp_id,
+        "Name": name,
+        "Department": department,
+        "Salary": salary
+    }
+    employees.append(employee)
+    print("Employee added successfully!")
+def view_employees():
+    if not employees:
+        print("No employee records found.")
+    else:
+        print("\n--- Employee Details ---")
+        for emp in employees:
+            print("ID:", emp["ID"])
+            print("Name:", emp["Name"])
+            print("Department:", emp["Department"])
+            print("Salary:", emp["Salary"])
+            print("----------------------")
+def search_employee():
+    emp_id = input("Enter Employee ID to search: ")
+    for emp in employees:
+        if emp["ID"] == emp_id:
+            print("Employee Found!")
+            print(emp)
+            return
+    print("Employee not found.")
+def delete_employee():
+    emp_id = input("Enter Employee ID to delete: ")
+    for emp in employees:
+        if emp["ID"] == emp_id:
+            employees.remove(emp)
+            print("Employee deleted successfully!")
+            return
+    print("Employee not found.")
+while True:
+    print("\n=== Employee Management System ===")
+    print("1. Add Employee")
+    print("2. View Employees")
+    print("3. Search Employee")
+    print("4. Delete Employee")
+    print("5. Exit")
+    choice = input("Enter your choice: ")
+    if choice == "1":
+        add_employee()
+    elif choice == "2":
+        view_employees()
+    elif choice == "3":
+        search_employee()
+    elif choice == "4":
+        delete_employee()
+    elif choice == "5":
+        print("Thank you for using the system!")
+        break
+    else:
+        print("Invalid choice. Please try again.")
+
+
+OUTPUT:
+
+=== Employee Management System ===
+1. Add Employee
+2. View Employees
+3. Search Employee
+4. Delete Employee
+5. Exit
+Enter your choice: 1
+Enter Employee ID: 101
+Enter Employee Name: Rahul
+Enter Department: IT
+Enter Salary: 30000
+Employee added successfully!
+
+=== Employee Management System ===
+1. Add Employee
+2. View Employees
+3. Search Employee
+4. Delete Employee
+5. Exit
+Enter your choice: 2
+
+--- Employee Details ---
+ID: 101
+Name: Rahul
+Department: IT
+Salary: 30000.0
+----------------------
+
+=== Employee Management System ===
+1. Add Employee
+2. View Employees
+3. Search Employee
+4. Delete Employee
+5. Exit
+Enter your choice: 3
+Enter Employee ID to search: 101
+Employee Found!
+{'ID': '101', 'Name': 'Rahul', 'Department': 'IT', 'Salary': 30000.0}
+
+=== Employee Management System ===
+1. Add Employee
+2. View Employees
+3. Search Employee
+4. Delete Employee
+5. Exit
+Enter your choice: 5
+Thank you for using the system!
